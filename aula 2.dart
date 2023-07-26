@@ -42,15 +42,15 @@ void main() {
   print('---------------------------------');
   
   //exercício 3
-  //int numero = 43;
   
-  //if (numero > 10 && numero < 20)
-  //  print('O numero está entre 10 e 20');
-  //if (numero == 0 || numero == 50)
-  //  print('O numero é igual a $numero');
- // if (numero != 100 || numero == 200)
- //   print('O numero é igual a $numero');
+  int numero = 43;
+  bool caso1 = numero > 10 && numero < 20;
+  bool caso2 = numero == 0 || numero == 50;
+  bool caso3 = numero != 100 || numero == 200;
   
+  print('O caso 1 é $caso1');
+  print('O caso 2 é $caso2');
+  print('O caso 3 é $caso3');
   
   print('---------------------------------');
   //exercício 4
