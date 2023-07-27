@@ -1,4 +1,27 @@
 //exercício 1
+class Veiculo{
+  String marca;
+  String modelo;
+  String ano;
+  
+  Veiculo({
+    this.marca = 'Honda',
+    this.modelo = 'PCX',
+    this.ano = '2023',
+  });
+  
+  void apresentaVeiculo(){
+    print('Dados do veículo: $marca, $modelo, $ano');
+  }
+}
+
+void main (){
+  Veiculo veiculo = Veiculo();
+  veiculo.apresentaVeiculo();
+  
+}
+print('-----------------------------------------------------------------------');
+
 class Carro{
   String marca;
   String modelo;
