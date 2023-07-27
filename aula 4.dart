@@ -1,11 +1,10 @@
-
+//exercício 1
 class Carro{
   String marca;
   String modelo;
   String ano;
   String cor;
   
-
   Carro({
     this.marca = 'Hundai',
     this.modelo = 'Hb20',
@@ -15,7 +14,7 @@ class Carro{
 
   void apresentaCarro(){
   print('Dados do carro: $marca, $modelo, $ano, $cor');
-}
+  }
 }
 
 class Moto{
@@ -33,9 +32,8 @@ class Moto{
   
   void apresentaMoto(){
   print('Dados da moto: $marca, $modelo, $ano, $cor');
+  }
 }
-}
-
 
 void main() {
   Carro carro = Carro();
@@ -44,3 +42,6 @@ void main() {
   Moto moto = Moto();
   moto.apresentaMoto();
 }
+print('------------------------------------------------');
+
+//exercício 2
