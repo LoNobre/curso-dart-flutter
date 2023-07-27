@@ -21,27 +21,36 @@ void main (){
   
 }
 print('-----------------------------------------------------------------------');
-//exercício 2
+//exercício 2 e 3
+
 
 class Carro{
   String marca;
   String modelo;
   String ano;
   String cor;
-  String quilometragemAnual;
+  int quilometragemAtual;
   String qdePortas;
-  
+   
   Carro({
     this.marca = 'Hundai',
     this.modelo = 'Hb20',
     this.ano = '2022',
     this.cor = 'Branco',
-    this.quilometragemAnual = '37589',
+    this.quilometragemAtual = 37589,
     this.qdePortas = '4',
   });
 
   void apresentaCarro(){
-  print('Dados do carro: Quilometragem anual - $quilometragemAnual, Quantidade de portas - $qdePortas');
+    String statusUso;
+    if (quilometragemAtual < 15000){
+      statusUso = 'Seminovo';
+    } else if (quilometragemAtual > 15000 && quilometragemAtual < 20000){
+      statusUso = 'Usado';
+    } else{
+      statusUso = 'Antigo';
+    }
+  print('Informações do carro \nQuantidade de portas: $qdePortas, \nQuilometragem atual: $quilometragemAtual, \nQualidade de uso: $statusUso.\n');
   }
 }
 
@@ -50,7 +59,7 @@ class Moto{
   String modelo;
   String ano;
   String cor;
-  String cilindradas;
+  int cilindradas;
   String partidaEletrica;
 
   Moto({
@@ -58,12 +67,20 @@ class Moto{
     this.modelo = 'Biz 110i',
     this.ano = '2022',
     this.cor = 'Prata',
-    this.cilindradas = '55',
+    this.cilindradas = 55,
     this.partidaEletrica = 'Sim',
   });
   
   void apresentaMoto(){
-  print('Dados da moto: Cilindradas - $cilindradas, Possui partida eletrica - $partidaEletrica');
+    String categoriaMoto;
+    if (cilindradas < 125){
+      categoriaMoto = 'Leve';
+    } else if (cilindradas > 125 && cilindradas < 500){
+      categoriaMoto = 'Normal';
+    } else {
+      categoriaMoto = 'Esportiva';
+    }
+  print('Informações da moto \nPossui partida eletrica: $partidaEletrica, \nCilindradas: $cilindradas, \nCategoria: $categoriaMoto.');
   }
 }
 
@@ -75,6 +92,4 @@ void main() {
   moto.apresentaMoto();
 }
 
-print('------------------------------------------------');
-
-//exercício 3
+//exercício 4
