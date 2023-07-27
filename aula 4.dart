@@ -21,22 +21,27 @@ void main (){
   
 }
 print('-----------------------------------------------------------------------');
+//exercício 2
 
 class Carro{
   String marca;
   String modelo;
   String ano;
   String cor;
+  String quilometragemAnual;
+  String qdePortas;
   
   Carro({
     this.marca = 'Hundai',
     this.modelo = 'Hb20',
     this.ano = '2022',
     this.cor = 'Branco',
+    this.quilometragemAnual = '37589',
+    this.qdePortas = '4',
   });
 
   void apresentaCarro(){
-  print('Dados do carro: $marca, $modelo, $ano, $cor');
+  print('Dados do carro: Quilometragem anual - $quilometragemAnual, Quantidade de portas - $qdePortas');
   }
 }
 
@@ -45,16 +50,20 @@ class Moto{
   String modelo;
   String ano;
   String cor;
+  String cilindradas;
+  String partidaEletrica;
 
   Moto({
     this.marca = 'Honda',
     this.modelo = 'Biz 110i',
     this.ano = '2022',
     this.cor = 'Prata',
+    this.cilindradas = '55',
+    this.partidaEletrica = 'Sim',
   });
   
   void apresentaMoto(){
-  print('Dados da moto: $marca, $modelo, $ano, $cor');
+  print('Dados da moto: Cilindradas - $cilindradas, Possui partida eletrica - $partidaEletrica');
   }
 }
 
@@ -65,6 +74,7 @@ void main() {
   Moto moto = Moto();
   moto.apresentaMoto();
 }
+
 print('------------------------------------------------');
 
-//exercício 2
+//exercício 3
