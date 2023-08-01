@@ -77,6 +77,8 @@ class MainApp extends StatelessWidget {
 
 /*
 //exercício 3
+//exercício 3
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -111,73 +113,25 @@ class MainApp extends StatelessWidget {
           title: Text("Minhas receitas"),
           backgroundColor: Color.fromARGB(0, 114, 114, 207),
         ),
-        body: const Column(children: [
-          Text(
-            'Sobremesas',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        body: Column(
+          children: dados.entries
+          .map((categoria) => Column( 
+            children: [
+              Text(categoria.key, 
+              style: const TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            for (String value in categoria.value)
+              Text(
+                value,
+                style: TextStyle(fontSize: 18 ),
+                ),  
+          ],
           ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Torta de Maçã',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Mousse de Chocolate',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Pudim de Leite Condensado',
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ]),
-          Text(
-            'Pratos principais',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Frango Assado com batatas',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Espaguete à Bolonhesa',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Risoto de Cogumelos',
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ]),
-          Text(
-            'Aperitivos',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Bolinhos de queijo',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Bruschetta de Tomate e Manjericão',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  'Canapés de Salmão com Cream Cheese',
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ])
-        ]),
+          ).toList(),
+        ),
       ),
-    );
+      );
   }
 }
 
