@@ -85,6 +85,8 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
+  MainApp({super.key});
+
   final Map<String, List<String>> dados = {
     'Sobremesas': [
       'Torta de Maçã',
@@ -103,29 +105,30 @@ class MainApp extends StatelessWidget {
     ],
   };
 
-  MainApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Minhas receitas"),
-          backgroundColor: Color.fromARGB(0, 114, 114, 207),
+          title: const Text("Minhas receitas"),
+          backgroundColor: const Color.fromARGB(0, 114, 114, 207),
         ),
         body: Column(
-          children: dados.entries.map((categoria) => Column( 
+          children: dados.entries.map((categoria) => Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch, 
             children: [
-              Text(categoria.key, 
-              style: const TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            for (String value in categoria.value)
-              Text(
-                value,
-                style: TextStyle(fontSize: 18),
-                ),  
-          ],
+              Center(
+                child: Text(categoria.key, 
+                style: const TextStyle(
+                  fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
+                for (String value in categoria.value)
+                Text( value,
+                style: const TextStyle(fontSize: 18),
+                ),
+            ],
           ),
           ).toList(),
         ),
@@ -133,7 +136,6 @@ class MainApp extends StatelessWidget {
       );
   }
 }
-
 
 */
 
