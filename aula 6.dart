@@ -75,13 +75,16 @@ class MainApp extends StatelessWidget {
 
 */
 
+//exercício 3
 /*
-//exercício 3
-//exercício 3
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  runApp(MainApp());
+}
+
+class MainApp extends StatelessWidget {
   final Map<String, List<String>> dados = {
     'Sobremesas': [
       'Torta de Maçã',
@@ -99,11 +102,8 @@ void main() {
       'Canapés de Salmão com Cream Cheese',
     ],
   };
-  runApp(MainApp());
-}
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -114,8 +114,7 @@ class MainApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(0, 114, 114, 207),
         ),
         body: Column(
-          children: dados.entries
-          .map((categoria) => Column( 
+          children: dados.entries.map((categoria) => Column( 
             children: [
               Text(categoria.key, 
               style: const TextStyle(
@@ -124,7 +123,7 @@ class MainApp extends StatelessWidget {
             for (String value in categoria.value)
               Text(
                 value,
-                style: TextStyle(fontSize: 18 ),
+                style: TextStyle(fontSize: 18),
                 ),  
           ],
           ),
