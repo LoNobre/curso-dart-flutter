@@ -32,7 +32,7 @@ void main() {
       }
     else{
         print('Tentativa expirada');
-        print('Faltam $inicio tentativas');
+        print('O número é: $numero');
       }
       inicio++;
     }
