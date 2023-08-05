@@ -98,5 +98,26 @@ print('-----------------------------------------------------------------------')
   print('------------------------------------------------------------------------------------------');
   
 //Exercício 5
+  String nome = 'Giselle Lorrane Nobre Melo';
+  int idade = 28;
+  bool ehNovato = false;
+  double peso = 56.700;
+  List notas = [5, 7, 8.8, 9.8];
+  List disciplinas = ['calculo', 'fisica', 'programacao'];
+  String endereco = '';
+  
+  String pesoBalanca = '57';
+  double pesoAtual = double.parse(pesoBalanca);
+  
+  final Map<String, double> aluno = {
+    'Carol': 58, nome: peso, 'Carlos': 70, 'Miguel': 90
+  };
+  
+  final String? alunoNovo = aluno['Carlos'].toString();
+  
+  aluno.remove('Carol');
+  
+  print(' ${aluno.containsKey('Giselle')}');
+  print('Alunos cadastrados $aluno');
 
 }
