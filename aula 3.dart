@@ -59,7 +59,23 @@ void main() {
   print('------------------------------------------------------------------------------------');
 
   //exercício 4
+  List<double> valor = [];
+  
+  print('Insira as notas:');
+  String? input = stdin.readLineSync();
 
+  while (input != "limite"){
+    double nota = double.parse(input!);
+    valor.add(nota);
+    input = stdin.readLineSync();
+  }
+  
+  double media = calculoNotas(valor);
+  print('Media das notas $media');
+  
+  print('----------------------------------------------------------------------------------');
+
+  //exercício 5
   
   
 }
