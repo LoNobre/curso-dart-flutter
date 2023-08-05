@@ -47,6 +47,19 @@ void main() {
   print('---------------------------------------------------------------------------------------');
 
   //exercício 3
+  print('Insira um valor limite:  ');
+  double valorLimite = double.parse(stdin.readLineSync()!);
 
+  List<double> valores = [10.4, 23.4, 66.8, 88.2];
+
+  List<double> valoresPares = valores.where((element) => element <= valorLimite && element % 2 == 0).toList();
+
+  print(valoresPares);
+
+  print('------------------------------------------------------------------------------------');
+
+  //exercício 4
+
+  
   
 }
