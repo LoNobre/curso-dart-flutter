@@ -79,7 +79,24 @@ List<double> notasA = [5, 7, 8.8, 9.8];
 print('-----------------------------------------------------------------------');
 
 //Exercício 4
+  String nome = 'Giselle Lorrane Nobre Melo';
+  int idade = 28;
+  bool ehNovato = false;
+  double peso = 56.700;
+  List notas = [5, 7, 8.8, 9.8];
+  List disciplinas = ['calculo', 'fisica', 'programacao'];
+  String endereco = '';
+  
+  String pesoBalanca = '57';
+  double pesoAtual = double.parse(pesoBalanca);
+  
+  pesoAtual.abs();
+  pesoAtual.round();
+  
+  print('Peso atual do aluno: $pesoAtual');
 
+  print('------------------------------------------------------------------------------------------');
+  
 //Exercício 5
 
 }
