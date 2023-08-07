@@ -1,22 +1,30 @@
 //exercício 1
 class Veiculo{
-  String marca;
-  String modelo;
-  String ano;
+  final String marca;
+  final String modelo;
+  final String ano;
   
-  Veiculo({
-    this.marca = 'Honda',
-    this.modelo = 'PCX',
-    this.ano = '2023',
+  const Veiculo({
+    required this.marca,
+    required this.modelo,
+    required this.ano,
   });
   
-  void apresentaVeiculo(){
-    print('Dados do veículo: $marca, $modelo, $ano');
+  void apresentaVeiculo() {
+    print('Dados do veículo ');
+    print('Marca: ${marca}');
+    print('Modelo: ${modelo}');
+    print('Ano: ${ano}');
   }
 }
 
 void main (){
-  Veiculo veiculo = Veiculo();
+  final Veiculo veiculo = Veiculo(
+  marca: 'Honda',
+  modelo: 'PCX',
+  ano: '2023',
+  );
+  
   veiculo.apresentaVeiculo();
   
 }
