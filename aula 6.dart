@@ -77,16 +77,9 @@ class MainApp extends StatelessWidget {
 
 //exercício 3
 /*
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  MainApp({super.key});
-
   final Map<String, List<String>> dados = {
     'Sobremesas': [
       'Torta de Maçã',
@@ -105,38 +98,39 @@ class MainApp extends StatelessWidget {
     ],
   };
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Minhas receitas"),
-          backgroundColor: const Color.fromARGB(0, 114, 114, 207),
-        ),
-        body: Column(
-          children: dados.entries.map((categoria) => Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch, 
-            children: [
-              Center(
-                child: Text(categoria.key, 
-                style: const TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ),
-                for (String value in categoria.value)
-                Text( value,
-                style: const TextStyle(fontSize: 18),
-                ),
-            ],
-          ),
-          ).toList(),
-        ),
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text("Minhas receitas"),
+        backgroundColor: const Color.fromARGB(0, 114, 114, 207),
       ),
-      );
-  }
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: dados.entries.map((categoria) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(
+              child: Text(categoria.key,
+                style: const TextStyle(
+                    fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (String value in categoria.value)
+                  Text( value,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+              ],
+            ),
+          ],
+        ),
+        ).toList(),
+      ),
+    ),
+  ));
 }
-
 */
 
 /*
