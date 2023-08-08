@@ -31,73 +31,88 @@ void main (){
 print('-----------------------------------------------------------------------');
 //exercício 2 e 3
 
+abstract class Veiculo {
+  final String marca;
+  final String modelo;
+  final String ano;
 
-class Carro{
-  String marca;
-  String modelo;
-  String ano;
-  String cor;
-  int quilometragemAtual;
-  String qdePortas;
-   
-  Carro({
-    this.marca = 'Hundai',
-    this.modelo = 'Hb20',
-    this.ano = '2022',
-    this.cor = 'Branco',
-    this.quilometragemAtual = 37589,
-    this.qdePortas = '4',
+  const Veiculo({
+    required this.marca,
+    required this.modelo,
+    required this.ano,
   });
 
-  void apresentaCarro(){
-    String statusUso;
-    if (quilometragemAtual < 15000){
-      statusUso = 'Seminovo';
-    } else if (quilometragemAtual > 15000 && quilometragemAtual < 20000){
-      statusUso = 'Usado';
-    } else{
-      statusUso = 'Antigo';
-    }
-  print('Informações do carro \nQuantidade de portas: $qdePortas, \nQuilometragem atual: $quilometragemAtual, \nQualidade de uso: $statusUso.\n');
+  void apresentaVeiculo() {
+    print('Dados do veículo ');
+    print('Marca: ${marca}');
+    print('Modelo: ${modelo}');
+    print('Ano: ${ano}');
   }
 }
 
-class Moto{
-  String marca;
-  String modelo;
-  String ano;
-  String cor;
-  int cilindradas;
-  String partidaEletrica;
+  class Carro extends Veiculo {
+    final int quilometragemAtual;
+    final String qdePortas;
 
-  Moto({
-    this.marca = 'Honda',
-    this.modelo = 'Biz 110i',
-    this.ano = '2022',
-    this.cor = 'Prata',
-    this.cilindradas = 55,
-    this.partidaEletrica = 'Sim',
-  });
-  
-  void apresentaMoto(){
-    String categoriaMoto;
-    if (cilindradas < 125){
-      categoriaMoto = 'Leve';
-    } else if (cilindradas > 125 && cilindradas < 500){
-      categoriaMoto = 'Normal';
-    } else {
-      categoriaMoto = 'Esportiva';
+    const Carro({
+      required super.marca,
+      required super.modelo,
+      required super.ano,
+      required this.quilometragemAtual,
+      required this.qdePortas,
+    });
+
+    @override
+    void apresentaCarro(){
+      print('Informações do carro');
+      super.apresentaVeiculo();
+      print('Quilometragem: ${quilometragemAtual}');
+      print('Quantidade de portas: ${qdePortas}\n\n');
     }
-  print('Informações da moto \nPossui partida eletrica: $partidaEletrica, \nCilindradas: $cilindradas, \nCategoria: $categoriaMoto.');
+  }
+
+class Moto extends Veiculo{
+  final int cilindradas;
+  final String partidaEletrica;
+
+  const Moto({
+    required super.marca,
+    required super.modelo,
+    required super.ano,
+    required this.cilindradas,
+    required this.partidaEletrica,
+  });
+
+  @override
+  void apresentaMoto(){
+    print('Informações da moto');
+    super.apresentaVeiculo();
+    print('Cilindradas: ${cilindradas}');
+    print('Possui partida elétrica? ${partidaEletrica}');
   }
 }
 
 void main() {
-  Carro carro = Carro();
+  final Carro carro = Carro (
+    marca: 'Hundai',
+    modelo: 'Hb20',
+    ano: '2022',
+    quilometragemAtual: 37589,
+    qdePortas: '4',
+  );
+
   carro.apresentaCarro();
-  
-  Moto moto = Moto();
+
+  final Moto moto = Moto (
+    marca: 'Honda',
+    modelo: 'Biz 110i',
+    ano: '2022',
+    cilindradas: 55,
+    partidaEletrica: 'Sim',
+  );
+
   moto.apresentaMoto();
 }
 
+print('---------------------------------------------------------------------------------');
 //exercício 4
