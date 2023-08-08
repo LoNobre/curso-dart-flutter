@@ -45,27 +45,27 @@ class MainApp extends StatelessWidget {
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.stretch,  children: [
-            Text('Torta de Maçã'),
-            Text('Mousse de Chocolate'),
-            Text('Pudim de Leite Condensado'),
+            Text('Torta de Maçã', style: TextStyle(fontSize: 18)),
+            Text('Mousse de Chocolate', style: TextStyle(fontSize: 18)),
+            Text('Pudim de Leite Condensado', style: TextStyle(fontSize: 18)),
           ]),
           Text(
             'Pratos principais',
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Text('Frango Assado com batatas'),
-            Text('Espaguete à Bolonhesa'),
-            Text('Risoto de Cogumelos'),
+            Text('Frango Assado com batatas', style: TextStyle(fontSize: 18)),
+            Text('Espaguete à Bolonhesa', style: TextStyle(fontSize: 18)),
+            Text('Risoto de Cogumelos', style: TextStyle(fontSize: 18)),
           ]),
           Text(
             'Aperitivos',
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Text('Bolinhos de queijo'),
-            Text('Bruschetta de Tomate e Manjericão'),
-            Text('Canapés de Salmão com Cream Cheese'),
+            Text('Bolinhos de queijo', style: TextStyle(fontSize: 18)),
+            Text('Bruschetta de Tomate e Manjericão', style: TextStyle(fontSize: 18)),
+            Text('Canapés de Salmão com Cream Cheese', style: TextStyle(fontSize: 18)),
           ])
         ]),
       ),
