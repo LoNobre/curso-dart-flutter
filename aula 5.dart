@@ -65,3 +65,14 @@ print('------------------------------------------------------------');
 
 //Exercício4
 
+import 'dart:async';
+
+void main() {
+  final List<String> nomes = ['Nome A', 'Nome B', 'Nome C', 'Nome D'];
+  Stream<List<String>> nomeStream = Stream.value(nomes);
+  Stream<List<int>> lengthNomes = nomeStream.map((nomes) => nomes.map((nome) => nome.length).toList());
+
+  lengthNomes.toList().then((lengthList){
+    print('Tamanho dos nomes: $lengthList');
+  });
+}
