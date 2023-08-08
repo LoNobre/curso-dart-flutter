@@ -270,6 +270,8 @@ abstract class Veiculo {
         statusUso =  'Antigo' ;
       }
       print ('Qualidade de uso: $statusUso.\n');
+      double precoBase = 0;
+      print('Preço final: ${precoAdicional(precoBase)} \n');
     }
 
     @override
@@ -305,6 +307,8 @@ abstract class Veiculo {
         categoriaMoto = 'Esportiva';
       }
       print('Categoria: $categoriaMoto.');
+      double precoFinal = 0;
+      print('Preço final: ${precoAdicional(precoFinal)}');
     }
 
     @override
