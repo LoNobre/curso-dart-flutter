@@ -212,7 +212,6 @@ class MainApp extends StatelessWidget {
 
 /*
 //exercício 5
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -252,35 +251,40 @@ class MainApp extends StatelessWidget {
           backgroundColor: const Color.fromARGB(0, 114, 114, 207),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: dados.entries.map((categoria) {
             if (categoriaPratos == null || categoriaPratos == categoria.key){
-            return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch, 
-            children: [
-              if(busca.isEmpty)
-              Center(
-                child: Text(categoria.key, 
-                style: const TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ),
-                for (String value in categoria.value)
-                  if(value.contains(busca) || busca.isEmpty)
-                    Text( value,
-                    style: const TextStyle(fontSize: 18),
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if(busca.isEmpty)
+                    Center(
+                      child: Text(categoria.key,
+                        style: const TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
                     ),
-            ],
-          );
-          }
-          else{
-            return Container();
-          }
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (String value in categoria.value)
+                        if(value.contains(busca) || busca.isEmpty)
+                          Text( value,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                    ],
+                  ),
+                ],
+              );
+            }
+            else{
+              return Container();
+            }
           },
           ).toList(),
         ),
       ),
-      );
+    );
   }
 }
 
