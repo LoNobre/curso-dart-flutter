@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,10 +28,14 @@ class _MainAppState extends State<MainApp> {
       'Bruschetta de Tomate e Manjericão',
       'Canapés de Salmão com Cream Cheese',
     ],
+    'Bebidas': [
+      'Água',
+      'Cerveja',
+      'Refrigerante',
+    ],
   };
 
   final String? categoriaPratos = null; //'Sobremesas' 'Pratos principais' 'Aperitivos'
-
   String busca = '';
 
   @override
@@ -48,40 +51,57 @@ class _MainAppState extends State<MainApp> {
             TextField(
               decoration: InputDecoration(
                 labelText: 'buscar',
-                hintText: 'Insira o nome do prato',
+                hintText: 'Buscar por',
               ), onChanged: (novaBusca){
                 setState((){
                   busca = novaBusca;
                 });
               },
             ),
-            Column(
-              children: dados.entries.map((categoria) {
-                if (categoriaPratos == null || categoriaPratos == categoria.key){
-                return Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch, 
-                children: [
-                  if(busca.isEmpty)
-                  Center(
-                    child: Text(categoria.key, 
-                    style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                    for (String value in categoria.value)
-                      if(value.contains(busca) || busca.isEmpty)
-                        Text( value,
-                        style: const TextStyle(fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: dados.entries.map((categoria) {
+                  if (categoriaPratos == null || categoriaPratos == categoria.key){
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch, 
+                      children: [
+                        if(busca.isEmpty)
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Center(
+                            child: Text(categoria.key, 
+                              style: const TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ),
-                ],
-              );
-              }
-              else{
-                return Container();
-              }
-              },
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              for (String value in categoria.value)
+                                if(value.contains(busca) || busca.isEmpty)
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Text( value,
+                                      style: const TextStyle(fontSize: 18),
+                                    ),
+                                  ),
+                            ],
+                         ),
+                       ),
+                    ],
+                    );
+                  }
+                  else{
+                    return Container();
+                  }
+                },
               ).toList(),
+              ),
             ),
           ],
         ),
