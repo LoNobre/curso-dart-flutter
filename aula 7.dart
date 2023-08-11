@@ -128,7 +128,8 @@ class MainApp extends StatelessWidget {
 */
 
 // exercício 3
-/*import 'package:flutter/material.dart';
+/*
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MainApp());
@@ -176,77 +177,91 @@ class _MainAppState extends State<MainApp> {
           title: const Text("Minhas receitas"),
           backgroundColor: const Color.fromARGB(0, 114, 114, 207),
         ),
-        body: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'buscar',
-                hintText: 'Buscar por',
-              ), onChanged: (novaBusca){
-              setState((){
-                busca = novaBusca;
-              });
-            },
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: dados.entries.map((categoria) {
-                  if (categoriaPratos == null || categoriaPratos == categoria.key){
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        if(busca.isEmpty)
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            child: Center(
+        body: Center(
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'buscar',
+                  hintText: 'Buscar por',
+                ), onChanged: (novaBusca){
+                setState((){
+                  busca = novaBusca;
+                });
+              },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: dados.entries.map((categoria) {
+                    if (categoriaPratos == null || categoriaPratos == categoria.key){
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          if(busca.isEmpty)
+                            Center(
                               child: Text(categoria.key,
                                 style: const TextStyle(
                                     fontSize: 24, fontWeight: FontWeight.bold),
                               ),
                             ),
-                          ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              for (String value in categoria.value)
-                                if(value.contains(busca) || busca.isEmpty)
-                                  Expanded(
-                                    flex: 2, 
-                                    child: Container(
-                                      margin: EdgeInsets.all(8.0),
-                                      padding: const EdgeInsets.all(8.0),
-                                      width: 10,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red[300],
-                                      ), 
-                                      child: Text( value, 
-                                        style: const TextStyle(fontSize: 18),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                for (String value in categoria.value)
+                                  if(value.contains(busca) || busca.isEmpty)
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
+                                        margin: EdgeInsets.symmetric(vertical: 10.5, horizontal:  5.5),
+                                        padding: const EdgeInsets.all(8.0),
+                                        height: 60,
+                                        //width: 60,
+                                        decoration: BoxDecoration(
+                                          color: Colors.red[300],
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            const Expanded(
+                                              child: Icon(
+                                                Icons.restaurant,
+                                                size: 18,
+                                                color: Colors.black38,
+                                              ),
+                                            ),
+                                            Flexible(
+                                              child:
+                                              Text( value,
+                                                style: const TextStyle(fontSize: 18),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    );
-                  }
-                  else{
-                    return Container();
-                  }
-                },
-                ).toList(),
+                        ],
+                      );
+                    }
+                    else{
+                      return Container();
+                    }
+                  },
+                  ).toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
 
 /*
