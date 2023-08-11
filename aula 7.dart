@@ -128,16 +128,20 @@ class MainApp extends StatelessWidget {
 */
 
 // exercício 3
-/*
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 void main() {
   runApp(MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   MainApp({super.key});
 
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
   final Map<String, List<String>> dados = {
     'Sobremesas': [
       'Torta de Maçã',
@@ -158,11 +162,11 @@ class MainApp extends StatelessWidget {
       'Água',
       'Cerveja',
       'Refrigerante',
-    ]
+    ],
   };
 
-  final String? categoriaPratos = null;
-  final String busca = '';
+  final String? categoriaPratos = null; //'Sobremesas' 'Pratos principais' 'Aperitivos'
+  String busca = '';
 
   @override
   Widget build(BuildContext context) {
@@ -172,53 +176,77 @@ class MainApp extends StatelessWidget {
           title: const Text("Minhas receitas"),
           backgroundColor: const Color.fromARGB(0, 114, 114, 207),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: dados.entries.map((categoria) {
-              if (categoriaPratos == null || categoriaPratos == categoria.key){
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if(busca.isEmpty)
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: Center(
-                          child: Text(categoria.key,
-                            style: const TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+        body: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'buscar',
+                hintText: 'Buscar por',
+              ), onChanged: (novaBusca){
+              setState((){
+                busca = novaBusca;
+              });
+            },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: dados.entries.map((categoria) {
+                  if (categoriaPratos == null || categoriaPratos == categoria.key){
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if(busca.isEmpty)
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: Center(
+                              child: Text(categoria.key,
+                                style: const TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              for (String value in categoria.value)
+                                if(value.contains(busca) || busca.isEmpty)
+                                  Expanded(
+                                    flex: 2, 
+                                    child: Container(
+                                      margin: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
+                                      width: 10,
+                                      height: 60,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[300],
+                                      ), 
+                                      child: Text( value, 
+                                        style: const TextStyle(fontSize: 18),
+                                      ),
+                                    ),
+                                  ),
+                            ],
                           ),
                         ),
-                      ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          for (String value in categoria.value)
-                            if(value.contains(busca) || busca.isEmpty)
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width,
-                                child: Text( value,
-                                  style: const TextStyle(fontSize: 18),
-                                ),
-                              ),
-                        ],
-                      ),
-                    ),
-                  ],
-                );
-              }
-              else{
-                return Container();
-              }
-            },
-            ).toList(),
-          ),
+                      ],
+                    );
+                  }
+                  else{
+                    return Container();
+                  }
+                },
+                ).toList(),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
 /*
